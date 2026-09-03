@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temperature Converter — Celsius, Fahrenheit, Kelvin</title>
+  <meta name="description" content="Convert temperature values between Celsius, Fahrenheit, and Kelvin instantly, with absolute-zero validation." />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" href="favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="panel" role="main">
+
+    <div class="tube" aria-hidden="true">
+      <div class="tube__fill" id="tubeFill"></div>
+      <div class="tube__marker" id="tubeMarker"></div>
+    </div>
+
+    <div class="card">
+
+      <header class="card__header">
+        <p class="eyebrow">Instrument readout</p>
+        <h1>Temperature converter</h1>
+        <p class="sub">Enter a value, pick the unit it's measured in, and read it off in the other two.</p>
+      </header>
+
+      <form id="converterForm" novalidate>
+
+        <div class="field">
+          <label for="tempValue">Value</label>
+          <input
+            type="text"
+            inputmode="decimal"
+            id="tempValue"
+            name="tempValue"
+            placeholder="e.g. 21.5"
+            autocomplete="off"
+          />
+          <p class="field__error" id="inputError" role="alert" aria-live="polite"></p>
+        </div>
+
+        <fieldset class="field">
+          <legend>Measured in</legend>
+          <div class="segmented" id="unitSelector">
+            <input type="radio" name="unit" id="unitC" value="C" checked />
+            <label for="unitC">Celsius <span>°C</span></label>
+
+            <input type="radio" name="unit" id="unitF" value="F" />
+            <label for="unitF">Fahrenheit <span>°F</span></label>
+
+            <input type="radio" name="unit" id="unitK" value="K" />
+            <label for="unitK">Kelvin <span>K</span></label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="convert-btn">Convert</button>
+
+      </form>
+
+      <p class="edge-message" id="edgeMessage" role="alert" aria-live="polite"></p>
+
+      <section class="results" id="results" aria-live="polite">
+        <div class="result" data-unit="C">
+          <span class="result__label">Celsius</span>
+          <span class="result__value"><span id="outC">—</span><span class="result__unit">°C</span></span>
+        </div>
+        <div class="result" data-unit="F">
+          <span class="result__label">Fahrenheit</span>
+          <span class="result__value"><span id="outF">—</span><span class="result__unit">°F</span></span>
+        </div>
+        <div class="result" data-unit="K">
+          <span class="result__label">Kelvin</span>
+          <span class="result__value"><span id="outK">—</span><span class="result__unit">K</span></span>
+        </div>
+      </section>
+
+      <footer class="card__footer">
+        <p>Absolute zero: −273.15 °C · −459.67 °F · 0 K</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
