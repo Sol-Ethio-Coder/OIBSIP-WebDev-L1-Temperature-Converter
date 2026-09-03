@@ -6,6 +6,8 @@ and Kelvin in real time, with input validation and absolute-zero handling.
 Built with plain HTML5, CSS3, and vanilla JavaScript — no build step, no
 framework, no npm install required.
 
+**Live demo:** [https://temp-converter-yourname.vercel.app](https://temp-converter-yourname.vercel.app)
+
 ## Features
 
 - Numeric input with validation (rejects non-numeric input with an inline error)
